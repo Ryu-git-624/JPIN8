@@ -1,4 +1,4 @@
-package typingApp_Answer;
+package typingApp_Answer_Rebuild;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package typingApp_Answer;
+package typingApp_Answer_Rebuild;
 
 class Question {
 	//出題する単語
@@ -7,11 +7,11 @@ class Question {
 	private int failCount;
 	private final int retierCount;
 	
-	public Question(String value) {
-		this.value = value;
+	public Question(Word word) {
+		this.value = word.getValue();
 		this.clear = false;
 		this.failCount = 0;
-		this.retierCount = 1;
+		this.retierCount = word.getLimit();
 	}
 	
 	//「結果」を比較する処理
@@ -29,5 +29,9 @@ class Question {
 	public boolean isClear(){
 		return this.clear;
 	}
-
+	
+	public boolean isLimit() {
+		return this.failCount == this.retierCount;
+	}
+	
 }

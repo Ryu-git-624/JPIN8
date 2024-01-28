@@ -1,4 +1,4 @@
-package typingApp_Answer;
+package typingApp_Answer_Rebuild;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,13 +20,13 @@ class Examination implements Iterator<Question>,Iterable<Question> {
 			this.list.add(new Question(dic.get()));
 		}
 	}
-	
-	public List<Question> get() {
-		return this.list;
-	}
 
 	@Override
 	public boolean hasNext() {
+		if(this.current != null
+				&& this.current.isLimit() == true) {
+			return false;
+		}
 		if(this.current != null
 				&& this.current.isClear() == false) {
 			return true;

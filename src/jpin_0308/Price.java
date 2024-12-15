@@ -1,6 +1,4 @@
-package jpin_0216;
-
-import java.util.Objects;
+package jpin_0308;
 
 public class Price {
 	private final int amount;
@@ -30,15 +28,10 @@ public class Price {
 	
 	public Price multi(Quantity qty)
 	{
-		return new Price(this.amount * qty.getSize(),currency,type);
+		return new Price(this.amount * qty.getSize(),currency);
 	}
 	
-
 	public Price add(Price target) {
-		if(this.currency != target.currency) {
-			throw new IllegalArgumentException();
-		}
-		
 		if(this.isCredit() && target.isCredit())
 		{
 			return new Price(this.amount + target.amount,currency,DealType.CREDIT);
@@ -61,23 +54,5 @@ public class Price {
 		return Integer.toString(amount);
 		
 	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(amount, currency, type);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Price other = (Price) obj;
-		return amount == other.amount && currency == other.currency && type == other.type;
-	}
-
 
 }

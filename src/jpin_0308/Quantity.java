@@ -1,4 +1,4 @@
-package jpin_0216;
+package jpin_0308;
 
 public class Quantity {
 	private final int size;
@@ -19,5 +19,10 @@ public class Quantity {
 	{
 		return new Quantity(this.size + quantity.size);
 	}
+	
+//	public boolean isLessThan(Order target)
+//	{
+//		return this.size > target.get
+//	}
 	
 }

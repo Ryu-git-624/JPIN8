@@ -1,20 +1,16 @@
 package jpin_0216;
 
+import java.util.Objects;
+
 public class Item {
 	
 	private String name;
 	private Price price;
-	private Type type;
 	
-	public Item(String name, Price price) {
-		this(name,price,Type.DEBIT);
-	}
-	
-	public Item(String name,Price price,Type type) {
+	public Item(String name,Price price) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.type = type;
 	}
 	
 	public String getName() {
@@ -23,5 +19,25 @@ public class Item {
 	public Price getPrice() {
 		return price;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, price);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Item other = (Item) obj;
+		return Objects.equals(name, other.name) && Objects.equals(price, other.price);
+	}
+	
+	
+	
 
 }

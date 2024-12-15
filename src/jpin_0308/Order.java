@@ -1,4 +1,4 @@
-package jpin_0216;
+package jpin_0308;
 
 public class Order {
 	
@@ -20,19 +20,13 @@ public class Order {
 		return item.getPrice().multi(qty);
 	}
 
-	public boolean isSameItem(Item target) {
-		return this.item.equals(target);
-	}
-	
-	public boolean isSameItem(Order target) {
-		return this.item.equals(target.item);
+	public boolean isSameItem(Order order) {
+		return this.item.equals(order.getItem());
 	}
 	
 	public Order Marge(Order order) {
-		if(this.isSameItem(order.item) == false)
-		{
-			throw new IllegalArgumentException();
-		}
 		return new Order(item,this.qty.Add(order.qty));
-	} 
+	}
+	
+
 }

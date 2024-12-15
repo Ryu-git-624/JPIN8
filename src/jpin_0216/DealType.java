@@ -1,5 +1,5 @@
 package jpin_0216;
 
-public enum Type {
+public enum DealType {
 	CREDIT,DEBIT
 }
